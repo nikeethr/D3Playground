@@ -1,203 +1,147 @@
 import collections
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Example data set:
 # data = [(x1,y1), (x2,y2), (x3,y3), ..., (xn, yn)]
 
-def create_variable_map(num_data_points):
-    variable_map = collections.OrderedDict()
-    k = 0
-    for i in range(num_data_points):
-        variable_map['a' + str(i)] = k
-        variable_map['b' + str(i)] = k+1
-        variable_map['c' + str(i)] = k+2
-        variable_map['d' + str(i)] = k+3
-        k += 4
+class CubicSpline:
+	def __init__(self, data):
+		self.__N = len(data)
+		self.__m = self.__create_variable_map(len(data) - 1)
+		self.__x = list(map(lambda g : g[0], data))
+		self.__y = list(map(lambda g : g[1], data))
+		self.__reset_computation()
 
-    return variable_map 
+	def __reset_computation(self):
+		self.__A = []
+		self.__b = []
+		self.__coef = []
+		self.__computed = False
 
+	def load_new_data(self, data):
+		self.__m = self.__create_variable_map(len(data))
+		self.__x = list(map(lambda g : g[0], data))
+		self.__y = list(map(lambda g : g[1], data))
+		self.__reset_computation()
+	
+	def compute_cubic_spline_fit(self):
+		if self.__computed:
+			return
 
-def get_cubic_first_derivative_coef(x):
-    y = compute_cubic_first_derivative(x)
-    y.extend([-k for k in y])
-    return y
+		self.__convert_to_cubic_spline_linear_system()
+		self.__solve_linear_system()
+		self.__computed = True
 
-def get_cubic_second_derivative_coef(x):
-    y = compute_cubic_second_derivative(x)
-    y.extend([-k for k in y])
-    return y
+	def get_cubic_fit(self, xs):
+		assert(self.__computed)
 
-def compute_cubic_linear_system_row(A, b, x, y, v, m, f):
-    g = f(x)
-    assert(len(g) == len(v))
+		y = [0 for i in range(len(xs))]
+		v = ['a', 'b', 'c', 'd']
+		N = self.__N
+		x = self.__x
+		m = self.__m
+		coef = self.__coef
 
-    row = [0 for i in range(len(m))]
-    for i,k in enumerate(v):
-        row[m[k]] = g[i]
-    
-    A.append(row)
-    b.append(y)
+		for i in range(len(xs)):
+			j = 0
+			for j in range(N):
+				if xs[i] < x[j]:
+					break
+			idx = min(max(0, j-1), N-2)
+			p = list(map(lambda k: coef[m[k + str(idx)]], v)) # parameters
+			c = self.__get_cubic_coef(xs[i]) # coefficients
+			y[i] = np.dot(c, p)
 
-def get_cubic_coef(x):
-    return [x**3, x**2, x, 1]
+		return y
+		
+	def get_cubic_coefficients(self):
+		return self.__coef
 
-def compute_cubic_first_derivative(x):
-    return [3*x**2, 2*x, 1]
+	def __create_variable_map(self, N):
+		variable_map = collections.OrderedDict()
+		k = 0
+		for i in range(N):
+			variable_map['a' + str(i)] = k
+			variable_map['b' + str(i)] = k+1
+			variable_map['c' + str(i)] = k+2
+			variable_map['d' + str(i)] = k+3
+			k += 4
 
-def compute_cubic_second_derivative(x):
-    return [6*x, 2]
+		return variable_map 
 
-def convert_to_cubic_spline_linear_system(data, m):
-    N = len(data)   
-    A = []
-    b = []
+	def __get_cubic_first_derivative_coef(self, x):
+		y = self.__compute_cubic_first_derivative(x)
+		y.extend([-k for k in y])
+		return y
 
-    for i in range(N-1):
-        # Condition Set 1: Curve should pass through interval end points
-        points = [data[i], data[i+1]]
+	def __get_cubic_second_derivative_coef(self, x):
+		y = self.__compute_cubic_second_derivative(x)
+		y.extend([-k for k in y])
+		return y
 
-        for p in points:
-            (x,y) = p
-            v =  [k + str(i) for k in ['a', 'b', 'c', 'd']]
-            compute_cubic_linear_system_row(A, b, x, y, v, m, get_cubic_coef)
+	def __compute_cubic_linear_system_row(self, A, b, x, y, v, m, f):
+		g = f(x)
+		assert(len(g) == len(v))
 
-        if i == N-2:
-            break
+		row = [0 for i in range(len(m))]
+		for i,k in enumerate(v):
+			row[m[k]] = g[i]
+		
+		A.append(row)
+		b.append(y)
 
-        # Condition Set 2: Curve should be continuous at interval end points
-        # 1st derivative
-        v = [k + str(i) for k in ['a', 'b', 'c']]
-        v.extend([k + str(i+1) for k in ['a', 'b', 'c']])
-        (x,_) = data[i+1]
-        compute_cubic_linear_system_row(A, b, x, 0, v, m, get_cubic_first_derivative_coef)
+	def __get_cubic_coef(self, x):
+		return [x**3, x**2, x, 1]
 
-        # 2nd derivative
-        v = [k + str(i) for k in ['a', 'b']]
-        v.extend([k + str(i+1) for k in ['a', 'b']])
-        compute_cubic_linear_system_row(A, b, x, 0, v, m, get_cubic_second_derivative_coef)
+	def __compute_cubic_first_derivative(self, x):
+		return [3*x**2, 2*x, 1]
 
-    # Condition Set 3: Boundaries should have second deravitive = 0
-    for i in [0, N-2]:
-        v = [k + str(i) for k in ['a', 'b']]
-        compute_cubic_linear_system_row(A, b, x, 0, v, m, compute_cubic_second_derivative)
+	def __compute_cubic_second_derivative(self, x):
+		return [6*x, 2]
 
-    return (A, b)
+	def __convert_to_cubic_spline_linear_system(self):
+		# renaming for easy usage
+		N = self.__N
+		x = self.__x
+		y = self.__y
+		m = self.__m
+		A = []
+		b = []
 
-def solve_linear_system(A, b):
-    x = np.linalg.solve(A, b)
-    assert(np.allclose(np.dot(A,x), b))
-    return x
+		for i in range(N-1):
+			# Condition Set 1: Curve should pass through interval end points
 
-# plots
-def plot_cubic_interpolation(data, coef, m, interp_step = 0.01):
-    # plot datum
-    x = list(map(lambda x: x[0], data))
-    y = list(map(lambda x: x[1], data))
-    plt.scatter(x, y, marker='x', color='black', s=20)
-    plt.plot(x, y, color='red')
+			for j in [i, i+1]:
+				v =  [k + str(i) for k in ['a', 'b', 'c', 'd']]
+				self.__compute_cubic_linear_system_row(A, b, x[j], y[j], v, m, self.__get_cubic_coef)
 
-    # plot cubic interpolation
-    data_interp = []
-    N = len(data)
-    v = ['a', 'b', 'c', 'd']
+			if i == N-2:
+				break
 
-    for i in range(N-1):
-        for x_interp in np.arange(x[i], x[i+1], interp_step):
-            params = list(map(lambda x: coef[m[x + str(i)]], v))
-            cubic_coef = get_cubic_coef(x_interp)
-            y_interp = np.dot(cubic_coef, params)
-            data_interp.append((x_interp, y_interp))
+			# Condition Set 2: Curve should be continuous at interval end points
+			# 1st derivative
+			v = [k + str(i) for k in ['a', 'b', 'c']]
+			v.extend([k + str(i+1) for k in ['a', 'b', 'c']])
+			self.__compute_cubic_linear_system_row(A, b, x[i+1], 0, v, m, self.__get_cubic_first_derivative_coef)
 
-    # append last data point for continuity
-    data_interp.append(data[-1])
+			# 2nd derivative
+			v = [k + str(i) for k in ['a', 'b']]
+			v.extend([k + str(i+1) for k in ['a', 'b']])
+			self.__compute_cubic_linear_system_row(A, b, x[i+1], 0, v, m, self.__get_cubic_second_derivative_coef)
 
-    # plot interpolation
-    x_interp = list(map(lambda x: x[0], data_interp))
-    y_interp = list(map(lambda x: x[1], data_interp))
-    plt.plot(x_interp, y_interp)
+		# Condition Set 3: Boundaries should have second deravitive = 0
+		for i in [0, N-2]:
+			v = [k + str(i) for k in ['a', 'b']]
+			self.__compute_cubic_linear_system_row(A, b, x[i], 0, v, m, self.__compute_cubic_second_derivative)
 
-    #### [V start] - visualise interpolation chords
-    if True:
-        interp_step = [1.0, 0.75, 0.5, 0.25, 0.1, 0.075, 0.05, 0.025]
-        for s in interp_step:
-            data_interp = []
-            for i in range(N-1):
-                    for x_interp in np.arange(x[i], x[i+1], s):
-                        params = list(map(lambda x: coef[m[x + str(i)]], v))
-                        cubic_coef = get_cubic_coef(x_interp)
-                        y_interp = np.dot(cubic_coef, params)
-                        data_interp.append((x_interp, y_interp))
+		self.__A = A
+		self.__b = b
 
-            data_interp.append(data[-1])
-            x_interp = list(map(lambda x: x[0], data_interp))
-            y_interp = list(map(lambda x: x[1], data_interp))
-            plt.plot(x_interp, y_interp, color='black', ls='--', lw=0.5)
-
-    #### [V end]
-    plt.show()
-    
-# test cases
-def test_variable_map():
-    N = 5
-    m = create_variable_map(N-1)
-    for k,v in m.items():
-        print("key = {}, value = {}".format(k,v))
-    print("\n")
-
-def test_derivatives():
-    x = 5
-    N = 5
-
-    m = create_variable_map(N-1)
-
-    funcs = [
-        {'dsc':'get_cubic_coef',                   'f':get_cubic_coef},
-        {'dsc':'get_cubic_first_derivative_coef',  'f':get_cubic_first_derivative_coef},
-        {'dsc':'get_cubic_second_derivative_coef', 'f':get_cubic_second_derivative_coef},
-        {'dsc':'compute_cubic_first_derivative',   'f':compute_cubic_first_derivative},
-        {'dsc':'compute_cubic_second_derivative',  'f':compute_cubic_second_derivative}
-    ]
-
-    for f in funcs:
-        print("x = {}, {}(x) = {}".format(x, f['dsc'], f['f'](x)))
-    print("\n")
-
-def test_cubic_spline_linear_system():
-    data = [(1,2), (2,1), (3,5), (4,3), (5,4)]
-    m = create_variable_map(len(data) - 1)
-
-    (A, b) = convert_to_cubic_spline_linear_system(data, m)
-    A = np.array(A)
-    b = np.array(b)
-    x = solve_linear_system(A, b)
-
-    print("A = ", A)
-    print("b = ", b)
-    print("x = ", x)
-    print("A.shape = ", A.shape)
-    print("b.shape = ", b.shape)
-    print("x.shape = ", x.shape)
-
-def test_cubic_interpolation_plot():
-    N = 10
-    data = list(np.random.randn(N))
-    data = [(2*i,data[i]) for i in range(N)]
-    # data = [(1,2), (2,1), (3,5), (4,3), (5,4)]
-
-    m = create_variable_map(len(data) - 1)
-
-    (A, b) = convert_to_cubic_spline_linear_system(data, m)
-    A = np.array(A)
-    b = np.array(b)
-    coef = solve_linear_system(A, b)
-
-    plot_cubic_interpolation(data, coef, m, 0.01)
-
-if __name__ == "__main__":
-    test_variable_map()
-    test_derivatives()
-    test_cubic_spline_linear_system()
-    test_cubic_interpolation_plot()
-    # d = loaddata();
-    # (A,b) = convert_to_cubic_spline_linear_system(d);
+	def __solve_linear_system(self):
+		A = np.array(self.__A)
+		b = np.array(self.__b)
+		print(A.shape)
+		print(b.shape)
+		coef = np.linalg.solve(A, b)
+		assert(np.allclose(np.dot(A, coef), b))
+		self.__coef = coef
