@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+
+<style>
+    .background {
+        fill: #eee;
+    }
+
+    .map-layer {
+        fill: #fff;
+        stroke: #333;
+    }
+    .side-by-side {
+        float: left;
+        padding: 0px 20px;
+    }
+</style>
+
+<body>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+<script>
+    var width = 300;
+    var height = 200;
+    var numMaps = 2;
+
+    var colors = d3.scale.category20();
+
+    var projection = d3.geo.mercator()
+        .scale(300)
+        .center([133.8, -25.3])
+        .translate([width/2, height/2])
+
+    path = d3.geo.path().projection(projection)
+
+    function renderMaps(geo) {
+        var visWrapper = d3.select('body');
+        for (i = 0; i < numMaps; i++) {
+            var wrapper = visWrapper
+                .append('div')
+                .style({
+                    width: width + 'px',
+                    height: height + 'px',
+                    float: "left"
+                });
+
+            createMap(wrapper, geo);
+        }
+    }
+
+    function createMap(wrapper, geo) {
+        var svg = wrapper.append('svg')
+            .attr({
+                width: width,
+                height: height
+            });
+
+        var mapLayer = svg.append('g')
+            .classed('map-layer', true);
+
+        mapLayer.selectAll('path')
+            .data(geo.features)
+            .enter()
+            .append('path')
+            .attr('d', path)
+            .attr('fill', function(d, i) {
+                    return colors(i);
+                })
+            .attr('opacity', .5)
+            .on("mouseover", handleMouseOver)
+            .on("mouseout", handleMouseOut);
+    }
+
+    function handleMouseOver(d, i) {
+        d3.select(this).attr({
+            opacity:1.,
+        });
+    }
+
+    function handleMouseOut(d, i) {
+        d3.select(this)
+            .attr('opacity', .5)
+            .attr('fill', function(d) {
+                return colors(i);
+            });
+    }
+
+    // load map
+    d3.json('states.min.geojson', function(e, m) {
+        if (e) throw e;
+        renderMaps(m)
+    });
+</script>
