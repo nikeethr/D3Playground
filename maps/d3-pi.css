@@ -18,6 +18,18 @@ body {
 	z-index: -1;
 }
 
+#duration {
+	position: absolute;
+	top: 85px;
+	left: 410px;
+	width: 140px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 200;
+	text-align: center;
+	z-index: 0;
+}
+
 #screenname {
 	font-size: 15px;
 	font-weight: 800;
