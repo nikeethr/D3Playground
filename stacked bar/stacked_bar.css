@@ -1,5 +1,40 @@
-.bar {
+#container {
+	white-space: nowrap;
+	overflow-x: hidden
+}
+.chart {
+	display: inline-block;
+	margin-left: 4px;
+	vertical-align: top;
+}
+.chart .explanation {
+	font-family: Sans-Serif;
+	font-size: 10px;
+}
+
+#chart_bar .bar {
 	fill: steelblue;
-	stroke-width: 1;
-	stroke: rgb(255,255,255);
+	stroke-width: 1; 
+	stroke: #fff; 
+}
+
+#chart_box .medianbox {
+	fill:none;
+	stroke:#333;
+	stroke-width:2;
+}
+
+#chart_box .medianline {
+	stroke:#333;
+	stroke-width:2;
+}
+
+#chart_box .outliercircle {
+	fill:none;
+	stroke:#333;
+	stroke-width:2;
+}
+
+.axis {
+	shape-rendering: crispEdges;
 }
