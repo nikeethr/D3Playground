@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- fonts -->
+		<link rel="stylesheet" type="text/css"
+		  href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+		<!-- chart stylesheet -->
+		<link rel="stylesheet" type="text/css" href="ga-bar-chart.css">
+		<title>Proton Usage (Sessions)</title>
+		<meta name="google-signin-client_id" content="78111760635-hg4hutn0s3bvtj8474cm9ej45gnovol7.apps.googleusercontent.com">
+		<meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly">
+		<!-- d3 modules -->
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+	</head>
+	<body>
+		<h1>Proton Analytics</h1>
+		<!-- The Sign-in button. This will run `queryReports()` on success. -->
+		<p class="g-signin2" data-onsuccess="queryReports"></p>
+		<div id="bar-chart"></div>
+		<!-- The API response will be printed here. -->
+		<!-- <textarea cols="80" rows="20" id="query-output"></textarea> -->
+		<!-- Load main script -->
+		<script src="ga-bar-chart.js"></script>
+		<!-- Load the JavaScript API client and Sign-in library. -->
+		<script src="https://apis.google.com/js/client:platform.js"></script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+.text-default {
+	font-family: Sans-serif;
+	font-size: 13px;
+	alignment-baseline: central;
+}
+
+.text-header {
+	font-family: Sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.text-value {
+	font-family: Sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	alignment-baseline: middle;
+}
+
+.text-comparison {
+	font-family: Sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	alignment-baseline: central;
+}
+
+.text-comparison.pos {
+	fill:green;
+}
+
+.text-comparison.neg {
+	fill:red;
+}
+
+.leading-column-bg {
+	fill: #eee
+}
+
+.line-header {
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.line-column {
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.line-row {
+	stroke: #bbb;
+	stroke-dasharray: 1,2;
+	shape-rendering: crispEdges;
+}
+
+.line-row:last-of-type {
+	stroke: black;
+	stroke-dasharray: none;
+	shape-rendering: crispEdges;
+}

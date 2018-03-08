@@ -1,0 +1,130 @@
+
+#chart-container {
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+
+.chart {
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+.chart .title-text {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 24px;
+	text-transform: uppercase;
+	shape-rendering: crispEdges;
+}
+
+.chart .legend-line {
+	stroke: #000;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.chart .scale-band-text {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 10px;
+	font-weight: bold;
+	shape-rendering: crispEdges;
+}
+
+.chart .scale-band-text-head {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 14px;
+	font-weight: bold;
+	shape-rendering: crispEdges;
+}
+
+.chart .scale-band-line {
+	stroke: #000;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.chart .grid .tick:not(:first-of-type) line {
+	stroke: #000;
+	stroke-dasharray: 2,2;
+	opacity:.3;
+	shape-rendering: crispEdges;
+}
+
+.chart .grid-head .tick-outer:last-of-type line {
+	opacity:0;
+}
+
+.chart .grid .tick:first-of-type line {
+	opacity:.2;
+	shape-rendering: crispEdges;
+}
+
+.chart .grid .domain {
+	opacity:0;
+}
+
+.chart .data-text {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 10px;
+	fill: #fff;
+	shape-rendering: crispEdges;
+}
+
+.chart .data-text-head {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 15px;
+	fill: #fff;
+	shape-rendering: crispEdges;
+}
+
+.chart .legend-text {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 9px;
+	fill: #000;
+	shape-rendering: crispEdges;
+}
+
+#chart-users .bar-event {
+	fill: blue;
+	shape-rendering: crispEdges;
+}
+
+#chart-users .bar-before {
+	fill: cornflowerblue;
+	shape-rendering: crispEdges;
+}
+
+#chart-users .bar-after {
+	fill: darkblue;
+	shape-rendering: crispEdges;
+}
+
+#chart-sessions .bar-event {
+	fill: darkorange;
+	shape-rendering: crispEdges;
+}
+
+#chart-sessions .bar-before {
+	fill: orange;
+	shape-rendering: crispEdges;
+}
+
+#chart-sessions .bar-after {
+	fill: brown;
+	shape-rendering: crispEdges;
+}
+
+#chart-pageviews .bar-event {
+	fill: purple;
+	shape-rendering: crispEdges;
+}
+
+#chart-pageviews .bar-before {
+	fill: plum;
+	shape-rendering: crispEdges;
+}
+
+#chart-pageviews .bar-after {
+	fill: #663399;
+	shape-rendering: crispEdges;
+}
