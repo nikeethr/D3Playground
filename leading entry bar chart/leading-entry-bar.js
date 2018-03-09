@@ -1,7 +1,7 @@
 // -- globals --
 firstChartXPadding = 60;
 
-var width = 300;
+var width = 250;
 var widthFC = width + firstChartXPadding;
 var height = 500;
 var heightLeading = 150;
@@ -46,7 +46,7 @@ function plotLeadingBarChart(metric, svg, dataBefore, dataEvent, dataAfter, firs
 
 	// title
 	var titleYOffset = 40;
-	var titleXOffset = first ? widthFC/2 : width/2;
+	var titleXOffset = first ? widthFC * .6 : width * .6;
 	gTitle.append('text')
 		.attr('class', 'title-text')
 		.attr('x', titleXOffset)

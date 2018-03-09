@@ -1,0 +1,244 @@
+{
+    "name": "VIC",
+    "views": 17489774,
+    "group": [
+        {
+            "name": "Flood",
+            "views": 238467,
+            "group": [
+                {
+                    "name": "East Gippsland Rainfall and River Conditions",
+                    "views": 5979
+                },
+                {
+                    "name": "Goulburn Broken Rainfall and River Conditions",
+                    "views": 25142
+                },
+                {
+                    "name": "Melbourne Rainfall",
+                    "views": 21532
+                },
+                {
+                    "name": "North Central Rainfall and River Conditions",
+                    "views": 8608
+                },
+                {
+                    "name": "Northeast Rainfall and River Conditions",
+                    "views": 10911
+                },
+                {
+                    "name": "Port Phillip Rainfall and River Conditions",
+                    "views": 25144
+                },
+                {
+                    "name": "Victoria Links to Rainfall and River Data",
+                    "views": 22008
+                },
+                {
+                    "name": "Victoria Rainfall and River Conditions",
+                    "views": 110701
+                },
+                {
+                    "name": "West Gippsland Rainfall and River Conditions",
+                    "views": 8442
+                }
+            ]
+        },
+        {
+            "name": "Forecasts",
+            "views": 1990934,
+            "group": [
+                {
+                    "name": "Frankston Forecast",
+                    "views": 21370
+                },
+                {
+                    "name": "Geelong Forecast",
+                    "views": 51786
+                },
+                {
+                    "name": "Melbourne Forecast",
+                    "views": 1633272
+                },
+                {
+                    "name": "Mornington Peninsula Forecast",
+                    "views": 23547
+                },
+                {
+                    "name": "Scoresby Forecast",
+                    "views": 22567
+                },
+                {
+                    "name": "Victorian 7-day Forecasts",
+                    "views": 95662
+                },
+                {
+                    "name": "Victorian Forecast Areas Map",
+                    "views": 22594
+                },
+                {
+                    "name": "Victorian Forecasts",
+                    "views": 120136
+                }
+            ]
+        },
+        {
+            "name": "Observations",
+            "views": 468868,
+            "group": [
+                {
+                    "name": "Latest Coastal Weather Observations for Victoria",
+                    "views": 2322
+                },
+                {
+                    "name": "Latest Weather Observations for Victoria",
+                    "views": 93098
+                },
+                {
+                    "name": "Latest Weather Observations for the Melbourne Area",
+                    "views": 274164
+                },
+                {
+                    "name": "Melbourne Area Weather Observation Stations",
+                    "views": 15283
+                },
+                {
+                    "name": "Victorian Observations",
+                    "views": 66115
+                },
+                {
+                    "name": "Victorian Weather Observation Stations",
+                    "views": 17886
+                }
+            ]
+        },
+        {
+            "name": "Other",
+            "views": 4099867,
+            "group": [
+                {
+                    "name": "128 km Melbourne Radar",
+                    "views": 190010
+                },
+                {
+                    "name": "Australia's official weather forecasts & weather radar - Bureau of Meteorology",
+                    "views": 1537344
+                },
+                {
+                    "name": "Bureau of Meteorology - Victoria Severe Weather Warning 1",
+                    "views": 202646
+                },
+                {
+                    "name": "Radar Images",
+                    "views": 1209418
+                },
+                {
+                    "name": "Victoria Weather and Warnings",
+                    "views": 801362
+                },
+                {
+                    "name": "Victorian Information",
+                    "views": 159087
+                }
+            ]
+        },
+        {
+            "name": "Radar Loop",
+            "views": 9875292,
+            "group": [
+                {
+                    "name": "128 km Melbourne (Broadmeadows) Radar Loop",
+                    "views": 227728
+                },
+                {
+                    "name": "128 km Melbourne 24 hour Rainfalls",
+                    "views": 180198
+                },
+                {
+                    "name": "128 km Melbourne Radar Loop",
+                    "views": 3127585
+                },
+                {
+                    "name": "128 km Melbourne Since 9 am Rainfalls",
+                    "views": 180986
+                },
+                {
+                    "name": "128 km Mt Gambier Radar Loop",
+                    "views": 159350
+                },
+                {
+                    "name": "128 km Yarrawonga Radar Loop",
+                    "views": 276730
+                },
+                {
+                    "name": "256 km Melbourne Radar Loop",
+                    "views": 2015962
+                },
+                {
+                    "name": "512 km composite Melbourne Radar Loop",
+                    "views": 1840020
+                },
+                {
+                    "name": "64 km Melbourne Radar Loop",
+                    "views": 860856
+                },
+                {
+                    "name": "National Radar Loop",
+                    "views": 1005877
+                }
+            ]
+        },
+        {
+            "name": "Satellite",
+            "views": 116512,
+            "group": [
+                {
+                    "name": "High-definition satellite images",
+                    "views": 116512
+                }
+            ]
+        },
+        {
+            "name": "Warnings",
+            "views": 699834,
+            "group": [
+                {
+                    "name": "Brown Rot Advice",
+                    "views": 13031
+                },
+                {
+                    "name": "Flood Warning - Goulburn River",
+                    "views": 5960
+                },
+                {
+                    "name": "Flood Warning - Ovens and King Rivers",
+                    "views": 10641
+                },
+                {
+                    "name": "Flood Warning - Yarra River",
+                    "views": 14172
+                },
+                {
+                    "name": "Flood Warning Summary",
+                    "views": 97965
+                },
+                {
+                    "name": "Marine Wind Warning Summary",
+                    "views": 17494
+                },
+                {
+                    "name": "Melbourne Road Weather Alert",
+                    "views": 5706
+                },
+                {
+                    "name": "Victorian Warnings Summary",
+                    "views": 527339
+                },
+                {
+                    "name": "Warning to Sheep Graziers",
+                    "views": 7526
+                }
+            ]
+        }
+    ]
+}

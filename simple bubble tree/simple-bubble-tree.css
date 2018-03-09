@@ -1,0 +1,42 @@
+.level-one-ring {
+	fill:none;
+	stroke: grey;
+	stroke-dasharray: 1,2;
+}
+
+.main-circle {
+	fill:slategray;
+}
+
+.main-circle-outline {
+	fill:white;
+	stroke:slategray;
+}
+
+.level-one-circle {
+	fill:gray;
+}
+
+.level-one-circle-outline {
+	fill:white;
+	stroke:gray;
+}
+
+.level-two-circle-outline {
+	fill:white;
+	stroke:lightgrey;
+}
+
+.links {
+	stroke:grey;
+}
+
+.level-two-links {
+	stroke:lightgrey;
+}
+
+.level-two-arc {
+	stroke:grey;
+	stroke-dasharray: 1,2;
+	fill:none;
+}

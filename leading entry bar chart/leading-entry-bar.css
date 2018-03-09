@@ -67,6 +67,7 @@
 	font-family: 'Open Sans', Sans-Serif;
 	font-size: 10px;
 	fill: #fff;
+	font-weight: bold;
 	shape-rendering: crispEdges;
 }
 
@@ -74,6 +75,7 @@
 	font-family: 'Open Sans', Sans-Serif;
 	font-size: 15px;
 	fill: #fff;
+	font-weight: bold;
 	shape-rendering: crispEdges;
 }
 
