@@ -40,3 +40,17 @@
 	stroke-dasharray: 1,2;
 	fill:none;
 }
+
+.text-level-one {
+    font-family:tahoma;
+    font-size:11px;
+    text-transform:uppercase;
+    fill:slategray;
+}
+
+.text-level-two {
+    font-family:tahoma;
+    font-size:8px;
+    fill:lightgrey;
+    alignment-baseline: middle;
+}

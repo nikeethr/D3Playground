@@ -38,7 +38,7 @@ function plotTree(d) {
 
 	var treeEnter = gTree.selectAll('.tree')
 		.data(d.group)
-		.enter()
+		.enter();
 
 	// level 1 - links
 	
@@ -50,7 +50,8 @@ function plotTree(d) {
 		.attr("y1", 0)
 		.attr("x2", function(d, i) { return r1 * Math.cos(delTheta * (i - 0.5)); })
 		.attr("y2", function(d, i) { return r1 * Math.sin(delTheta * (i - 0.5)); });
-
+    
+   
 	// level 2 - ring
 
 	gLevelTwo = treeEnter.append('g')
@@ -118,20 +119,48 @@ function plotTree(d) {
 		.attr('r', function(d, i) { return rMap(d.views); } );
 	
 	// draw level 2 - circles
-	gLevelTwo.selectAll('.nodes')
+    
+	var gLevelTwoData = gLevelTwo.selectAll('.nodes')
 		.data(function(d) { return d.group; })
 		.enter()
-		.append('circle')
+        .append('g')
+            .attr("transform", function(d, i) {
+                var sign = i % 2 ? 1 : -1;
+                var theta = -Math.PI / 2 + sign * delThetaLevelTwo * Math.ceil(i / 2);
+                var x = r2 * Math.cos(theta);
+                var y = r2 * Math.sin(theta);
+                theta = theta / Math.PI * 180;
+                return "translate(" + x + "," + y + ")" + "rotate(" + theta + ")";
+            });
+
+    gLevelTwoData.append('circle')
 			.attr('class', 'level-two-circle-outline')
-			.attr("cx", function(d, i) { 
-					var sign = i % 2 ? 1 : -1;
-					return r2 * Math.cos(-Math.PI / 2 + sign * delThetaLevelTwo * Math.ceil(i / 2));
-				})
-			.attr("cy", function(d, i) { 
-				var sign = i % 2 ? 1 : -1;
-				return r2 * Math.sin(-Math.PI / 2 + sign * delThetaLevelTwo * Math.ceil(i / 2));
-			})
-			.attr('r', function(d, i) { return rMap(d.views); } );
+            .attr('r', function(d, i) { return rMap(d.views); } );
+
+    // Category
+    treeEnter.append('text')
+        .attr("class", "text-level-one")
+        .attr("transform", function(d, i) {
+            var x = (rMax + 4) * Math.cos(delTheta * (i - 0.5));
+            var y = (rMax + 4) * Math.sin(delTheta * (i - 0.5));
+            var theta = delTheta * (i - 0.5) / Math.PI * 180;
+            return "translate(" + x + "," + y + ")" + "rotate(" + theta + ")";
+        })
+        .attr("dy", -2)
+        .text(function(d) { return d.name; });
+
+    // Page title
+    gLevelTwoData
+        .append('text')
+            .attr("transform", function(d, i) {
+                    var x = rMap(d.views) + 2 // shift by radius + padding
+                    var sign = i % 2 ? -1 : 1;
+                    var theta = 0.3 * sign * delThetaLevelTwo * Math.ceil(i / 2);
+                    theta = theta / Math.PI * 180;
+                    return "translate(" + x + ",0)" + "rotate(" + theta + ")";
+                })
+           .attr("class", "text-level-two")
+           .text(function(d) { return d.name; });
 }
 
 // - main -
