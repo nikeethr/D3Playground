@@ -16,7 +16,17 @@
 	fill: steelblue;
 	stroke-width: 1; 
 	stroke: #fff; 
+	shape-rendering:crispEdges;
 }
+
+#chart_bar .barBefore {
+	fill: steelblue;
+	stroke-width: 1; 
+	stroke: #fff; 
+	shape-rendering:crispEdges;
+	fill-opacity:.4;
+}
+
 
 #chart_box .medianbox {
 	fill:none;

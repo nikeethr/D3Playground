@@ -1,24 +1,21 @@
-Social Network,Relevant Pages,Sessions
-Facebook,Other,46276
-Twitter,Other,31152
-Twitter,Warnings,16192
-Facebook,Warnings,14384
-reddit,Other,2792
-Facebook,Flood,2436
-Twitter,Flood,670
-Facebook,Radar,458
-Facebook,Rainfall,411
-Twitter,Radar,348
-reddit,Flood,122
-Twitter,Rainfall,111
-YouTube,Other,106
-Blogger,Other,100
-YouTube,Warnings,58
-reddit,Warnings,14
-reddit,Radar,13
-Facebook,Radar Sites Table,13
-YouTube,Radar,12
-Twitter,Radar Sites Table,6
-Blogger,Radar,2
-reddit,Radar Sites Table,1
-Blogger,Flood,1
+Social Network,Page Group,Sessions,Sessions Before
+Facebook,Other,"33,549","7,472"
+Twitter,Other,"19,624","3,590"
+Twitter,Warnings,"13,758","2,717"
+Facebook,Radar Loop,"13,493","2,647"
+Twitter,Radar Loop,"8,722","2,472"
+Facebook,Warnings,"6,933",903
+Twitter,Forecasts,"3,559",950
+Facebook,Forecasts,"2,810",945
+Facebook,Flood,"2,163",4
+reddit,Other,"1,242",266
+reddit,Radar Loop,"1,189",180
+Facebook,Observations,"1,123",125
+Twitter,Observations,507,243
+Twitter,Flood,485,16
+reddit,Forecasts,295,128
+reddit,Flood,120,0
+Facebook,Satellite,31,4
+reddit,Observations,30,17
+Twitter,Satellite,22,2
+reddit,Warnings,14,0

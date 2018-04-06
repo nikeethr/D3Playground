@@ -14,7 +14,6 @@
 }
 
 .level-one-circle {
-	fill:gray;
 }
 
 .level-one-circle-outline {
@@ -24,7 +23,6 @@
 
 .level-two-circle-outline {
 	fill:white;
-	stroke:lightgrey;
 }
 
 .links {
@@ -32,7 +30,7 @@
 }
 
 .level-two-links {
-	stroke:lightgrey;
+	stroke:#aaa;
 }
 
 .level-two-arc {
@@ -42,15 +40,67 @@
 }
 
 .text-level-one {
-    font-family:tahoma;
-    font-size:11px;
-    text-transform:uppercase;
-    fill:slategray;
+	font-family:tahoma;
+	font-size:11px;
+	text-transform:uppercase;
+	fill:slategray;
 }
 
 .text-level-two {
-    font-family:tahoma;
-    font-size:8px;
-    fill:lightgrey;
-    alignment-baseline: middle;
+	font-family:tahoma;
+	font-size:8px;
+	fill:grey;
+	alignment-baseline: middle;
+}
+
+.text-legend {
+	font-family:tahoma;
+	font-size:8px;
+	fill:grey;
+	text-transform:uppercase;
+	alignment-baseline: central;
+}
+
+.tick text {
+	fill:grey;
+}
+
+.tick line {
+	stroke:grey;
+	shape-rendering:crispEdges;
+}
+
+.domain {
+	stroke:grey;
+	shape-rendering:crispEdges;
+}
+
+.circle-legend {
+	stroke:grey;
+	fill:lightgrey;
+	fill-opacity:.2;
+	stroke-opacity:.7;
+}
+
+.text-main {
+	font-family:tahoma;
+	font-size:18px;
+	fill:white;
+	alignment-baseline:central;
+	text-anchor:middle;
+}
+
+.line-legend {
+	stroke:#aaa;
+	stroke-dasharray:2,2;
+	shape-rendering:crispEdges;
+}
+
+.text-x-legend {
+	font-family:sans-serif;
+	font-size:8px;
+	fill:#aaa;
+	text-transform:uppercase;
+	alignment-baseline:central;
+	text-anchor:middle;
 }

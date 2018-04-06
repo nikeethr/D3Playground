@@ -87,7 +87,7 @@
 }
 
 #chart-users .bar-event {
-	fill: blue;
+	fill: rgb(31,119,180);
 	shape-rendering: crispEdges;
 }
 
@@ -102,7 +102,7 @@
 }
 
 #chart-sessions .bar-event {
-	fill: darkorange;
+	fill: rgb(255,127,14);
 	shape-rendering: crispEdges;
 }
 
@@ -117,7 +117,7 @@
 }
 
 #chart-pageviews .bar-event {
-	fill: purple;
+	fill: rgb(148,103,189);
 	shape-rendering: crispEdges;
 }
 

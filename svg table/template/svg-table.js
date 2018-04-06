@@ -56,9 +56,9 @@ function mapHeader(key) {
 function mapColor(key) {
 	switch (key) {
 		case 'page_group':	return 'black';
-		case 'users': 		return 'blue';
-		case 'sessions':	return 'darkorange';
-		case 'pageviews':	return 'purple';
+		case 'users': 		return d3.rgb(31,119,180);
+		case 'sessions':	return d3.rgb(255,127,14);
+		case 'pageviews':	return d3.rgb(148,103,189);
 	}
 
 	return 'black';

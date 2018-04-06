@@ -13,6 +13,13 @@ var svgBox = d3.select("#chart_box")
 	.attr("width", 300)
 	.attr("height", 300);
 
+// -- helper functions
+
+const parseFloatAnySeparator = (x) => {
+	return parseFloat(x.replace(new RegExp('[^0-9.]','g'),''));
+	
+}
+
 //  -- Functions --
 
 // [Box Plot]
@@ -26,7 +33,6 @@ function DrawBoxPlot() {
 		upperQuart:100,
 		outliers:[5,8,110,120,125]
 	};
-
 
 	var height = svgBox.attr("height");
 	var width = svgBox.attr("width");
@@ -121,7 +127,7 @@ function RemoveBoxPlot() {
 }
 
 // [Stacked Bar]
-function DrawStackedBar(dStack) {
+function DrawStackedBar(dStack, dStackBefore) {
 	var height = svgBar.attr("height");
 	var width = svgBar.attr("width");
 	var margin = {t:100, r:20, b:100, l:100};
@@ -192,8 +198,20 @@ function DrawStackedBar(dStack) {
 			.attr("x", function(d) { return xAxis(d.stackStart); })
 			.attr("y", function(d) { return yAxis(d.fPri); })
 			.attr("width", function(d) { return xAxis(d.stackEnd) - xAxis(d.stackStart); })
-			.attr("height", yAxis.bandwidth())
-			.style("fill", function(d) { return colorMap(d.fSec); })
+			.attr("height", yAxis.bandwidth() / 2 - 2)
+			.style("fill", function(d) { return d3.rgb(colorMap(d.fSec)); })
+			.on("mouseover", handleBarMouseOver)
+			.on("mouseout", handleBarMouseOut);
+
+	svgBar.selectAll(".barBefore")
+		.data(dStackBefore)
+		.enter().append("rect")
+			.attr("class", "barBefore")
+			.attr("x", function(d) { return xAxis(d.stackStart); })
+			.attr("y", function(d) { return yAxis(d.fPri) + yAxis.bandwidth() / 2; })
+			.attr("width", function(d) { return xAxis(d.stackEnd) - xAxis(d.stackStart); })
+			.attr("height", yAxis.bandwidth() / 2 + 2)
+			.style("fill", function(d) { return d3.rgb(colorMap(d.fSec)); })
 			.on("mouseover", handleBarMouseOver)
 			.on("mouseout", handleBarMouseOut);
 
@@ -206,12 +224,45 @@ function DrawStackedBar(dStack) {
 	var legendGroup = svgBar.append("g")
 		.attr("transform", "translate(" + (widthIn + 20) + "," + (margin.t + 5) + ")");
 
+	legendGroup.append('text')
+		.attr("font-family", "sans-serif")
+		.attr("font-size", "8")
+		.attr("fill", "#000")
+		.attr("text-anchor", "end")
+		.attr("y", uniquefSec.length * (lgdHeight + lgdPadding) + 6)
+		.attr("x", lgdWidth / 2 - 2)
+		.style("text-transform", "uppercase")
+		.style("opacity", .5)
+		.text('5 days prior');
+	
+	legendGroup.append('text')
+		.attr("font-family", "sans-serif")
+		.attr("font-size", "8")
+		.attr("fill", "#000")
+		.attr("text-anchor", "start")
+		.attr("y", uniquefSec.length * (lgdHeight + lgdPadding) + 6)
+		.attr("x", lgdWidth / 2 + 2)
+		.style("text-transform", "uppercase")
+		.text('during event');
+
 	legendGroup.selectAll(".legendbar")
 		.data(uniquefSec)
 		.enter().append("rect")
 			.attr("class", "legend")
 			.attr("y", function(d, i) { return (lgdHeight + lgdPadding) * i; })
-			.attr("width", lgdWidth)
+			.attr("width", lgdWidth / 2 - 1)
+			.attr("height", lgdHeight)
+			.style("fill", function(d) { return colorMap(d);})
+			.style("opacity", .4);
+
+
+	legendGroup.selectAll(".legendbar")
+		.data(uniquefSec)
+		.enter().append("rect")
+			.attr("class", "legend")
+			.attr("y", function(d, i) { return (lgdHeight + lgdPadding) * i; })
+			.attr("x", lgdWidth / 2)
+			.attr("width", lgdWidth / 2 - 1)
 			.attr("height", lgdHeight)
 			.style("fill", function(d) { return colorMap(d);});
 
@@ -288,14 +339,16 @@ d3.csv("x.csv",
 	function(d) {
 		return {
 			sn: d["Social Network"],
-			rp: d["Relevant Pages"],
-			s: +d["Sessions"]
+			rp: d["Page Group"],
+			s: +parseFloatAnySeparator(d["Sessions"]),
+			sb: +parseFloatAnySeparator(d["Sessions Before"])
 		};
 	}, 
 	function(e, d) {
 		if(e) throw e;
 		dStack = StackBars("sn", "rp", "s", d);
-		DrawStackedBar(dStack);
+		dStackBefore = StackBars("sn", "rp", "sb", d);
+		DrawStackedBar(dStack, dStackBefore);
 		DrawBoxPlot();
 	}
 );
