@@ -1,0 +1,73 @@
+STAGE 1
+
+- Implement sankey diagram using D3
+	- Read up on d3-sankey
+	- Read up on Gauss-Seidel method
+	- Create dummy dataset for event tracking
+	- Create sankey diagram (static)
+===
+
+===
+STAGE 2
+
+- Implement subchart 1: click node ||
+	- If C, show A breakdown as bar chart
+	- If A, show L table
+	- If L, show all C-A-L pathways - this should be unique (ideally all labels should be unique)
+	- For all, show number of unique events and % of total unique events
+
+- Implement subchart 2: click group (C/A/L)
+	- For C/A show overall breakdown |description|nodes (e.g. no. actions)|unique events|%|
+	- For L table of labels |description|count (instead of nodes)|unique events|%|
+	- unique events can have relative bar size...
+	- % can have a tiny pie chart next to the number...
+
+- Implement subchart 3: click link
+	- Show number of unique events and % of total unique events
+	- Show link pair description
+===
+
+===
+STAGE 3
+- Implement custom sankey diagram
+	- Todo: insert various readings/algos here e.g. links, nodes text etc.
+===
+
+
+
+===
+NOTES
+
+[2018-04-05]
+
+Need to convert data to following format:
+
+
+{
+	"nodes": [
+		{	
+			"name":"abc"
+		},
+		...
+	],
+
+	"links": [
+		{
+			"source":1,
+			"target":2,
+			"value":200,
+		},
+		...
+	],
+}
+
+1) data generator [x]
+2) data to graph json convertor [x]
+
+ ----------------------------------
+ stage 1 progress: [=         ] 10%
+ ----------------------------------
+
+[2018-04-06]
+
+===
