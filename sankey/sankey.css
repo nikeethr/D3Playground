@@ -1,0 +1,21 @@
+.node rect{
+	stroke:#000;
+	shape-rendering:crispEdges;
+}
+
+.link {
+	fill:none;
+	stroke:#000;
+	stroke-opacity:.2;
+}
+
+.link:hover {
+	stroke-opacity:.5
+}
+
+.node text {
+	font-family:Sans-Serif;
+	font-size:10px;
+	fill:#000;
+	alignment-baseline:central;
+}
