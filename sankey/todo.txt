@@ -33,6 +33,9 @@ STAGE 2
 
 [V2]
 ===
+- CTRL click => expand action
+- Click => show bar graph + stats + highlight nodes (not subtle)
+- Hover => highlight all nodes (subtle) + show minimal stats
 
 ===
 STAGE 3
@@ -79,12 +82,25 @@ Need to convert data to following format:
 
 Play around with sankey plugin.
 
-1) create static graph []
-2) re-think what to show on "click" []
-3) click for secondary graph - simplistic version for now []
+1) create static graph [x]
+2) category action label lines... []
+3) re-think what to show on "click" []
+4) click for secondary graph - simplistic version for now []
 
 d3-sankey@0.7.1 has changes to algorithm compared to @0.6. Tend to like visual
 asthetics of @0.6 better... need to test out with random-gen CAL.
+
+ ----------------------------------
+ stage 1 progress: [=====     ] 50%
+ stage 2 progress: [=         ] 10%
+ ----------------------------------
+===
+
+[2018-04-10]
+1) category action label lines... []
+2) interactive add/remove [x]
+3) re-think what to show on "click" []
+4) click for secondary graph - simplistic version for now []
 
 
 ===
