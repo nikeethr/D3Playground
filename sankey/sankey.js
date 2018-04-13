@@ -44,7 +44,18 @@ function getNodeIdx(a, d) {
 	return actionIdx;
 }
 
+function resetSelected(graph) { graph.nodes.forEach(function(n) {
+		n['selected'] = false;
+	});
+
+	graph.links.forEach(function(l) {
+		l['selected'] = false;
+	});
+}
+
 function updateSankey(graph) {
+	resetSelected(graph);
+
 	graphPlot = sankey(
 		{
 			nodes: graph.nodes.filter(x => x.targetLinkCount + x.sourceLinkCount > 0),
@@ -63,12 +74,25 @@ function updateSankey(graph) {
 			.sort(function(a, b) {
 				return a.width < b.width;
 			})
+			.style('opacity', .3)
+			.style('fill', 'none')
+			.style('stroke', 'gray')
+			.on('mouseover', function () {d3.select(this).style('opacity', 0.6)})
+			.on('mouseout', function() {d3.select(this).style('opacity', 0.4)})
+			.on('click', function (d) { 
+					d3.selectAll('.link')
+						.style('stroke', function(d_) {
+							return d_.source.name === d.source.name && d_.target.name === d.target.name
+								? 'sandybrown' : 'gray';
+						})
+					d['selected'] = true;
+				})
 			.transition().duration(ANIMATION_DURATION)
 			.attr('stroke-width', function(d) { 
 					return d.width; 
 				})
 			.attr('d', d3.sankeyLinkHorizontal())
-			
+
 	link.exit().remove()
 
 	var node = drawNodes.selectAll('.node')
@@ -84,6 +108,29 @@ function updateSankey(graph) {
 	drawNode.append('text');
 
 	var mergeNode = drawNode.merge(node)
+		.on('mouseover', function (d) {
+			mergeNode.selectAll('rect').style('fill-opacity', function(d_) {
+				return d.name == d_.name ? 1 : .5;
+			})
+			mergeNode.selectAll('rect').style('stroke-opacity', function(d_) {
+				return d.name == d_.name ? 1 : .5;
+			})
+			mergeNode.selectAll('text').style('opacity', function(d_) {
+				return d.name == d_.name ? 1 : .5;
+			})
+			d3.selectAll('.link')
+				.style('opacity', function(d_) {
+						return d_.source.name === d.name || d_.target.name === d.name
+							? .6 : .4;
+					})
+
+		})
+		.on('mouseout', function (d) {
+			mergeNode.selectAll('text').style('opacity', 1);
+			mergeNode.selectAll('rect').style('fill-opacity', 1);
+			mergeNode.selectAll('rect').style('stroke-opacity', 1);
+			d3.selectAll('.link').style('opacity', .4);
+		})
 						
 	mergeNode.select('rect')
 			.attr('width', function (d) {
@@ -102,11 +149,30 @@ function updateSankey(graph) {
 						updateSankey(graph);
 					}
 				}
+
+				if (!d3.event.ctrlKey) {
+					resetSelected(graph);
+
+					d3.selectAll('.link')
+						.style('stroke', function(d_) {
+							var selected = d_.source.name === d.name || d_.target.name === d.name;
+							d_['selected'] = selected;
+							return selected ? 'sandybrown' : 'dimgray';
+						})
+						.style('opacity', function(d_) {
+							return d_.source.name === d.name || d_.target.name === d.name
+								? .6 : .4;
+						})
+
+					d['selected'] = true;
+				}
 			})
 			.transition().duration(ANIMATION_DURATION)
 			.attr('height', function(d) {
 					return d.y1 - d.y0;
-				});
+				})
+			.style('fill-opacity', 1.)
+			.style('stroke-opacity', 1.);
 
 	mergeNode.select('text')
 			.text(function(d) {
@@ -117,7 +183,8 @@ function updateSankey(graph) {
 				return (d.y1 - d.y0) / 2;
 			})
 			.attr('text-anchor', 'end')
-		.filter(function(d) { return d.x0 < width / 2; })
+			.style('opacity', 1.)
+		.filter(function(d) { return d.x0 < widthSankey / 2; })
 			.attr('x', function(d) {
 				return (d.x1 - d.x0) + 6;
 			})
@@ -132,27 +199,34 @@ function updateSankey(graph) {
 	node.exit().remove();
 }
 
+function initialiseSankey(d) {
+	graph = sankey(d);
+	initialiseGraph(graph);
+	removeLabels(graph);
+	updateSankey(graph);
+}
+
 // main
 
-var width = 900;
-var height = 600;
-var margin = { top:20, left:20, bottom:20, right:20 };
+var widthSankey = 900;
+var heightSankey = 600;
+var marginSankey = { top:20, left:20, bottom:20, right:20 };
 
-var svg = d3.select('body')
+var svgSankey = d3.select('body')
 	.append('svg')
-	.attr('width', width)
-	.attr('height', height);
+	.attr('width', widthSankey)
+	.attr('height', heightSankey);
 
-var drawLinks = svg.append('g')
-var drawNodes = svg.append('g')
+var drawLinks = svgSankey.append('g')
+var drawNodes = svgSankey.append('g')
 
 var sankey = d3.sankey()
 	.nodeWidth(15)
 	.nodePadding(10)
 	.nodeAlign(d3.sankeyLeft)
 	.extent([
-				[margin.left, margin.top],
-				[width - margin.left - margin.right, height - margin.top - margin.bottom]
+				[marginSankey.left, marginSankey.top],
+				[widthSankey - marginSankey.left - marginSankey.right, heightSankey - marginSankey.top - marginSankey.bottom]
 			]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -162,9 +236,10 @@ var graphPlot = null;
 
 d3.json('data/rng_graph.json', function(e, d) {
 	if (e) throw e;
-
-	graph = sankey(d);
-	initialiseGraph(graph);
-	removeLabels(graph);
-	updateSankey(graph);
+	initialiseSankey(d);
+	d3.select("body").on("keydown", function() {
+		if (d3.event.keyCode == 82) {
+			initialiseSankey(d);
+		}
+	})
 });

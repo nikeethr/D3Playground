@@ -17,20 +17,22 @@ def main():
 	# todo: probability distribution
 
 	rng_config = [
-		('category', 1, 4, True, True),
-		('action', 1, 10, True, True),
-		('label', 1, nrows * 2, False, True), # set stop to nrows * 2 to guarentee (stop - start) > nrows
-		('uniqueEvents', 1, 50, True, False) 
+		('category', 1, 4, 1, True, True),
+		('action', 1, 10, 1, True, True),
+		('label', 1, nrows * 2, 1, False, True), # set stop to nrows * 2 to guarentee (stop - start) > nrows
+		('events', 1, 1000, 1, True, False),
+		('uniqueEventsRatio', 0, 0.5, 0.01, True, False)
 	]
 
 	data = dg.generate_data(rng_config, nrows)
+	data['uniqueEvents'] = [np.floor(data['events'][i] * data['uniqueEventsRatio'][i]) for i in range(nrows)]
 
 	# convert data to dataframe
 	df = pd.DataFrame(data)
 	df.to_csv(csv_out, index=False)
 
 	# convert dataframe to graph structure
-	data_graph = dc.convert_dataframe_to_graph(df, ['category', 'action', 'label'], 'uniqueEvents')
+	data_graph = dc.convert_dataframe_to_graph(df, ['category', 'action', 'label'], 'events')
 
 	with open(json_out, 'w') as f:
 		json.dump(data_graph, f, separators=(',',':'))
