@@ -68,6 +68,10 @@ Need to convert data to following format:
  stage 1 progress: [=         ] 10%
  ----------------------------------
 
-[2018-04-06]
+[2018-04-12]
+
+Create bar graph separately.
+Bar graph will incorporate unique events and normal events.
+Customised axis etc.
 
 ===
