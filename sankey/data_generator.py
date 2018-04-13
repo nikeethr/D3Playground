@@ -35,10 +35,11 @@ class DataGenerator:
 			label = rng[0]
 			low = rng[1]
 			high = rng[2]
-			replace = rng[3]
-			prefix_label = rng[4]
+			step = rng[3]
+			replace = rng[4]
+			prefix_label = rng[5]
 
-			data_range = np.arange(low, high+1)
+			data_range = np.arange(low, high, step)
 			data_entry = [(label + str(i)) for i in data_range] if prefix_label else data_range
 			data[label] = np.random.choice(data_entry, nrows, replace)
 
