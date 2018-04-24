@@ -574,6 +574,21 @@ function updateSankey(graph) {
 								? 'sandybrown' : 'gray';
 						})
 					d['selected'] = true;
+
+					var from_index = graph.nodes.map(x => x.name).indexOf(d.source.name)
+					var to_index = graph.nodes.map(x => x.name).indexOf(d.target.name)
+					var from = 
+						{
+							selection: d.source.name, 
+							group: graph.nodes[from_index].group
+						};
+
+					var to = 
+						{
+							selection: d.target.name, 
+							group: graph.nodes[to_index].group
+						};
+					updateBarChart( d.source.name + " → " + d.target.name, 'link', from, to);
 				})
 			.transition().duration(ANIMATION_DURATION)
 			.attr('stroke-width', function(d) { 
