@@ -1,0 +1,16 @@
+.graph-row{
+	display: inline-block;
+	vertical-align:top;
+}
+
+.node rect{
+	stroke:#000;
+	shape-rendering:crispEdges;
+}
+
+.node text {
+	font-family:Sans-Serif;
+	font-size:10px;
+	fill:#000;
+	alignment-baseline:central;
+}
