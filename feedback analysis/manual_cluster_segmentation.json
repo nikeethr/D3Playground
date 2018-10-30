@@ -1,0 +1,496 @@
+{
+  "topics": [
+    {
+      "name": "UV",
+      "sentiment_score": 0.94,
+      "count": 69,
+      "sub_topics": [
+        {
+          "name": "index",
+          "example": "I would like to see the live UV Index display added to the temp, humidity, rain and wind on the mobile webpage. Can this be added?",
+          "count": 26
+        },
+        {
+          "name": "forecast",
+          "example": "looks great but missing the UV forecast - in a country like Aus this is pretty important ;)",
+          "count": 12
+        },
+        {
+          "name": "sun",
+          "example": "I liked the new mobile weather pages. Would have liked a brief descriptive text on the weather in addition to the data. Also does not reference the sun or whether it will be overcast etc and a UV measurement would be useful. Liked the page layout and ease of navigation. Well done.",
+          "count": 11
+        },
+        {
+          "name": "rating",
+          "example": "Great App even better with UV rating.",
+          "count": 11
+        },
+        {
+          "name": "alert",
+          "example": "Can you please include uv alerts on this mobile site. Thank you",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "name": "Fire",
+      "sentiment_score": 0.5,
+      "count": 26,
+      "sub_topics": [
+        {
+          "name": "link",
+          "example": "Looks good. Would there be a spot on the page for fire danger ratings or a quick link?",
+          "count": 5
+        },
+        {
+          "name": "warning",
+          "example": "Looks great! One point for consideration is to make it a separate app allowing for push notifications of weather warnings and fire warnings.",
+          "count": 5
+        },
+        {
+          "name": "danger",
+          "example": "Good mobile site. Can we have fire danger added, and related? Eg today is total fire ban.",
+          "count": 10
+        },
+        {
+          "name": "rating",
+          "example": "A very important, but missing, feature is the fire danger rating.",
+          "count": 5
+        },
+        {
+          "name": "fight",
+          "example": "This page is really well done. Probably the best mobile page I've used. Any chance of getting fdi info when it's being forecasted for firefighters to use? Would be handy to have the info up to date without going through vicfire",
+          "count": 5
+        }
+      ]
+    },
+		{
+      "name": "Rain",
+      "sentiment_score": 0.865,
+      "count": 461,
+      "sub_topics": [
+        {
+          "name": "rainfall",
+          "example": "Under chance of any rain can you add the estimated rainfall amount to be expected in each timeframe such as 5% chance of 5-10mm or 55% chance of < 1mm or 80% chance of 40 - 50mm?",
+          "count": 131
+        },
+        {
+          "name": "colour",
+          "example": "On the week's predictions Page for a given city or location, is suggest making the little weather symbols (for sunny / rain / storms, etc) full colour rather than symbols in a two tone blue and white, to make it easier to differentiate them at a glance.",
+          "count": 14
+        },
+        {
+          "name": "accuracy",
+          "example": "Would be good if you could put the amount of rainfall in the data",
+          "count": 48
+        },
+        {
+          "name": "predict",
+          "example": "While the seven day forcasts seem to have estimated rain, and today's forcast has 3 time zones with probability, there is nowhere on today's forcast which gives the predicted rain, either in total, or in amounts corresponding to the time periods.",
+          "count": 45
+        },
+        {
+          "name": "time",
+          "example": "It would be good to know approx. what time rainfall is expected for a particular day (in addition to expected amount and chance).",
+          "count": 72
+        },
+				{
+          "name": "flood",
+          "example": "I like it. It's simple to navigate. Has the main info that we need straight away and a link to the full site for any in depth info that we need. I use the site all the time as we are flood zoned and do flood so it will be good to have quick access through an app.",
+          "count": 7
+        }
+      ]
+    },
+		{
+      "name": "Forecast",
+      "sentiment_score": 0.89,
+      "count": 385,
+      "sub_topics": [
+        {
+          "name": "time|day|date",
+          "example": "Thank you thank you thank you! great site. Perhaps add the last time the forecast was updated.",
+          "count": 200
+        },
+        {
+          "name": "wind",
+          "example": "Your mobile site is very good and easy to read. Any chance you could include forecast wind speed and direction as well? This is important to us.",
+          "count": 79
+        },
+        {
+          "name": "rain",
+          "example": "I'd find the mobile page much more useful if the 'possible rainfall' figures appeared with the possibility percentage for each 3-hour period shown for the current day, as we see in the non-mobile beta town forecast pages. This is the only reason I don't use the mobile site forecast pages.",
+          "count": 94
+        },
+        {
+          "name": "location",
+          "example": "Very excited to hear you are developing an app! Would love for it to be able to do 7 day forecasts, automatically give you forecasts based on your location. Anything like your website would be great!",
+          "count": 45
+        },
+        {
+          "name": "summary",
+          "example": "Looks great. Can you add a forecast summary, like Sunny, Windy, a Cloudy to each day?",
+          "count": 7
+        }
+      ]
+    },
+		{
+      "name": "Wind",
+      "sentiment_score": 0.75,
+      "count": 188,
+      "sub_topics": [
+        {
+          "name": "speed",
+          "example": "Forecast wind direction and speed would be good",
+          "count": 57
+        },
+        {
+          "name": "direction",
+          "example": " I would like to see more details about the wind strength and direction. Wind is more dangerous than rain however most sites have highly detailed rain forecast and minimal details on forecast wind conditions.",
+          "count": 63
+        },
+        {
+          "name": "graph",
+          "example": "I would like to see a small graph tracking/predicting wind strength over 24 hours",
+          "count": 11
+        },
+        {
+          "name": "knots",
+          "example": "As a sailor I love the wind speed reflected in knots as well as kph. Can this be applied consistently throughout the site? Also - a UV index?",
+          "count": 19
+        },
+        {
+          "name": "time|day|date",
+          "example": "i Hi, I'm a big fan of your mobile website and use it as my weather app. A useful addition would be to add wind info for each day on the 6-day forecast page. A min-max range (ie: 7-24 km/h) should fit in and provide a decent overview for each day.",
+          "count": 67
+        }
+      ]
+    },
+		{
+      "name": "Moon & Tides",
+      "sentiment_score": 0.85,
+      "count": 82,
+      "sub_topics": [
+        {
+          "name": "phase",
+          "example": "As a keen amateur fisherman, fisho's around oz are crying out for an app that shows detailed, updated info on tides, swell, wind and moon phases not just temperature and rainfall.",
+          "count": 11
+        },
+        {
+          "name": "icon|sign",
+          "example": "Moon and sun icons are out of sync with celestial movements.",
+          "count": 10
+        },
+        {
+          "name": "time|day|date",
+          "example": "Looks good, but a little too bland. How about adding photo of the day. That would make it something to watch out for! Also moon phases and other astronomical interests. Showing tide times would be nice. ",
+          "count": 36
+        },
+        {
+          "name": "tides",
+          "example": "Looks great.....would be great if had swell and tide info as well in the app.",
+          "count": 70
+        },
+        {
+          "name": "moon",
+          "example": "I think your site is fantastic. Does it have tides and moon and swell chart? If not it needs it. Thank you",
+          "count": 23
+        }
+      ]
+    },
+		{
+      "name": "Location",
+      "sentiment_score": 0.8,
+      "count": 437,
+      "sub_topics": [
+        {
+          "name": "favourite",
+          "example": "Love it! Would be great if you could add more than one location as a favourite.",
+          "count": 88
+        },
+        {
+          "name": "current",
+          "example": "The current location selection on the mobile website is not working.",
+          "count": 75
+        },
+        {
+          "name": "wrong",
+          "example": "Results are being returned for the wrong locations. For example, my saved bookmark for Mt Ginini in the ACT returns a forecast for Melbourne. This has started happening recently (this week?).",
+          "count": 7
+        },
+        {
+          "name": "radar",
+          "example": "Nice! The UI is good clean and easy to read. Like the zoom on the radar. Did not remember my location but that might be a browser issue.",
+          "count": 117
+        },
+        {
+          "name": "nearest",
+          "example": "Love the new app but location is out of whack. Says I'm in North Altona though I'm sitting in my house in Altona near the beach! Thx",
+          "count": 59
+        }
+      ]
+    },
+		{
+      "name": "Weather Stations",
+      "sentiment_score": 0.7,
+      "count": 72,
+      "sub_topics": [
+        {
+          "name": "location",
+          "example": "Love the design and layout of site. Would be great as an app. Only issue is the current location is coming up saying Yatala when the is not a suburb where located. Does locate the nearest station from where the weather was being read though.",
+          "count": 12
+        },
+        {
+          "name": "near",
+          "example": "My location is Mosman, which links me to the weather station in the harbour, which, according to this website, is 6.2 kms away. The Sydney station is only 1.7 kms. Why does the 'Use my current location...' not link me to Observatory Hill? The weather there is much closer to that experienced at Mosman than the Middle of the harbour!",
+          "count": 17
+        },
+        {
+          "name": "observation",
+          "example": "Good work bom. Would be great to get observations of surrounding three stations. In my case ulladulla, point perp and Nowra.",
+          "count": 9
+        },
+        {
+          "name": "different|wrong|incorrect",
+          "example": "When you type in to view Berwick, it is such a false reading as it takes the details from Ferny Ck? Why is this? Ferny Ck has such different conditions, so the Berwick area us always usually a false reeding? ;( Can't it be aligned to a different station more relevant?",
+          "count": 13
+        },
+        {
+          "name": "radar",
+          "example": "Overlay weather station observations onto radar?",
+          "count": 14
+        }
+      ]
+    },
+		{
+      "name": "App Request",
+      "sentiment_score": 0.9,
+      "count": 251,
+      "sub_topics": [
+        {
+          "name": "android",
+          "example": "Good mobile site any plans for a android app soon?",
+          "count": 17
+        },
+        {
+          "name": "iphone",
+          "example": "Love it. I can now get rid of all my other weather iOS apps. When does this become an app?",
+          "count": 27
+        },
+        {
+          "name": "download",
+          "example": "Great, but how do I download the app?",
+          "count": 16
+        },
+        {
+          "name": "please|make",
+          "example": "Like the site can you make it an app. That will give me alerts to weather events??",
+          "count": 55
+        },
+        {
+          "name": "mobile|device",
+          "example": "This is a great start. Can you make it into an appn so it can be better accessed via mobile devices?",
+          "count": 66
+        }
+      ]
+    },
+		{
+      "name": "Favourite",
+      "sentiment_score": 0.8,
+      "count": 112,
+      "sub_topics": [
+        {
+          "name": "location",
+          "example": "Site keeps defaulting to a location I viewed once. When I set a different place as my favourite, it still goes back to the old location",
+          "count": 64
+        },
+        {
+          "name": "list",
+          "example": "How can I create a list of favourites and the pick from that list? Otherwise loving the new mobile site.",
+          "count": 10
+        },
+        {
+          "name": "current",
+          "example": "Looks the goods. Needs a rainfall metre in current weather section, not just 7 day forecast. Perhaps a current location shortcut button next to the favourite button too would be helpful.",
+          "count": 11
+        },
+        {
+          "name": "change",
+          "example": " Great overall. My only comment is that can't seem to change the Favourite location , it seems to default back to the 1st place I was when I loaded the site . I'm viewing on iPhone 4s with ios7.1 .",
+          "count": 8
+        },
+        {
+          "name": "save",
+          "example": "The app won't save my location as a favourite. The star does change colour when touched.",
+          "count": 23
+        }
+      ]
+    },
+		{
+      "name": "Warnings",
+      "sentiment_score": 0.6,
+      "count": 89,
+      "sub_topics": [
+        {
+          "name": "severe",
+          "example": "I am very frustrated that BOM has issued no weather warnings during last days. I live in the Tinderry Mtns and rely on warnings for planning. We have had severe temperatures (-4C with wind to -8C), snow from Tuesday evening, ice on all vegetation (what US calls an ice storm). Warnings wood have helped me with firewood planning, waterpipes, etc; and others with livestock.",
+          "count": 8
+        },
+        {
+          "name": "link",
+          "example": "Love it, really easy to read, big and bright l like how you got your quick links, weather, radar and warnings. Cant wait for more updates. Looking forward to it. Thank you heaps, keep it up guys!",
+          "count": 11
+        },
+        {
+          "name": "current",
+          "example": "Looks the goods. Needs a rainfall metre in current weather section, not just 7 day forecast. Perhaps a current location shortcut button next to the favourite button too would be helpful.",
+          "count": 11
+        },
+        {
+          "name": "local",
+          "example": "Very pleased with the site so far. Simple, easy to to use platform and informative. Will you have local warning push messages?",
+          "count": 8
+        },
+        {
+          "name": "save",
+          "example": "The app won't save my location as a favourite. The star does change colour when touched.",
+          "count": 23
+        }
+      ]
+    },
+		{
+      "name": "Radar",
+      "sentiment_score": 0.85,
+      "count": 625,
+      "sub_topics": [
+        {
+          "name": "map",
+          "example": "I am unable to get appropriate radar coverage map for Launceston region - defaults to SE Tasmania",
+          "count": 70
+        },
+        {
+          "name": "work|load|problem",
+          "example": "The link to the Bairnsdale radar has stopped working ... Eg if your looking at weather for yarram, then switch to radar ... No radar appears",
+          "count": 114
+        },
+        {
+          "name": "rain",
+          "example": "Thanks for the new mobile website - it's extremely useful! I love the rain detail and easy access to the radar.",
+          "count": 146
+        },
+        {
+          "name": "wind",
+          "example": "Luv the new m.bom site but would love the 'weather observations' on the radar ie wind direction arrows temp/wind strength/rain measure same as the bom radar site option. Cheers and keep up the good work.",
+          "count": 49
+        },
+        {
+          "name": "zoom",
+          "example": "I like the uncluttered screen layouts and the easy to use zoom feature in the radar. Thank you.",
+          "count": 44
+        },
+				{
+          "name": "road",
+          "example": "Very good. Additional settings for radar eg. Roads, railways, observations would be nice.",
+          "count": 34
+        },
+				{
+          "name": "observations",
+          "example": "Like your new mobile site however the radar is no use for me as a cyclist. I need weather observations (temp and wind) which are not provided - at least I could not see how to turn them on as you can on the main site",
+          "count": 29
+        }
+      ]
+    },
+		{
+      "name": "Observations",
+      "sentiment_score": 0.91,
+      "count": 69,
+      "sub_topics": [
+        {
+          "name": "rain",
+          "example": "I want to know how much rain since 9am on latest observations in the front page. MetEye tells me that with the 'places' page",
+          "count": 16
+        },
+        {
+          "name": "radar",
+          "example": "The new mobile site is great. I like the layout of the forecast and especially the %chance of rain and expected amount for all of the days. Radar is good on mobile, the radar is the coolest thing ever. It would be good to have a like to another page that has weather observations maybe a graph or table of things like rain, temperature or wind.",
+          "count": 29
+        },
+        {
+          "name": "current",
+          "example": "I often visit the BOM website to check on current observations and check the forecasts. I'd definitely use an app such as this.",
+          "count": 7
+        },
+        {
+          "name": "differ",
+          "example": "I really like many aspects of the mobile site. It's great to have both the forecast and observations together. But the information differs from what's on the full site, especially re chance of rain. Today the full site says there's a 90% chance of rain in Canberra while the mobile site says 30% or 50% at different times of day. I've noticed other similar errors over the past week. It would be great if this could be addressed.",
+          "count": 6
+        }
+      ]
+    },
+		{
+      "name": "User Interface",
+      "sentiment_score": 0.95,
+      "count": 448,
+      "sub_topics": [
+        {
+          "name": "colour",
+          "example": "Design is elegant but some colour would make it much easier to read the forecasts at a glance -- eg. Some yellow for sunny days, ice blue for snow, etc. With the current design I find myself needing to spend too long looking for the details when I only want an overview.",
+          "count": 87
+        },
+        {
+          "name": "navigation",
+          "example": "Nice work guys, Menu is easy to navigate to where you want to go, all the data comes up in a nice format that is easy to read. Works pretty smoothly as well.",
+          "count": 117
+        },
+        {
+          "name": "icon|symbol",
+          "example": "Love the 7 days of forecasting A small icon representing the days weather would make it quick to understand.",
+          "count": 95
+        },
+        {
+          "name": "layout",
+          "example": "The mobile site is fantastic. I love the breakdown of rain to time slots and the layout is great. Very easy to access the radar and i can get the info i need for my suburb quickly. Great work!",
+          "count": 128
+        },
+				{
+          "name": "clarity",
+          "example": "I like it. Very clear and easy to navigate. Not cluttered with lots of unnecessary info.",
+          "count": 43
+        },
+				{
+          "name": "information",
+          "example": "Just want to day thank for this really useful site. Very useful during firefighting operations in the Northern Midlands of Tasmania over. The last few days. The layout of the information is perfect.",
+          "count": 86
+        }
+      ]
+    },
+		{
+      "name": "Sun",
+      "sentiment_score": 0.9,
+      "count": 138,
+      "sub_topics": [
+        {
+          "name": "sunrise|sunset",
+          "example": "I'd like to see sunrise and sunset times.as well as swell and tide information .then it would be perfect",
+          "count": 37
+        },
+        {
+          "name": "sunny",
+          "example": "Would be nice to also show if it's sunny, overcast etc as just having % chance of rainfall does not indicate the day. This for mobile site",
+          "count": 46
+        },
+        {
+          "name": "uv",
+          "example": "Can you add the SunSmart UV Alert information?",
+          "count": 13
+        },
+        {
+          "name": "icon|symbol",
+          "example": "I love the new mobile site, my only negative feedback is the colour of your sun symbol. The yellow one is cheery and reflects a sunny day but the bluish colour you have on the site reflects more like a grey day.",
+          "count": 27
+        }
+      ]
+    }
+  ]
+}
+
+

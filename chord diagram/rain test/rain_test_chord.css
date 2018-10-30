@@ -1,0 +1,17 @@
+text {
+  font: 10px sans-serif;
+  fill: black;
+}
+
+.group-tick line {
+  stroke: dimgrey;
+}
+
+.ribbons {
+  fill-opacity: 0.67;
+}
+
+.chart {
+  display: inline-block;
+  vertical-align: middle;
+}

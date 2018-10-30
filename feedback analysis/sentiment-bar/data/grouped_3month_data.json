@@ -1,0 +1,164 @@
+{
+    "data": [
+        {
+            "positive": 2966,
+            "neutral": 162,
+            "negative": 63,
+            "sessions": 567703,
+            "total_comments": 3191,
+            "start_date": "2014-05-01",
+            "end_date": "2014-07-30",
+            "mid_date": "2014-06-15"
+        },
+        {
+            "positive": 91,
+            "neutral": 18,
+            "negative": 8,
+            "sessions": 1401928,
+            "total_comments": 117,
+            "start_date": "2014-07-30",
+            "end_date": "2014-10-28",
+            "mid_date": "2014-09-13"
+        },
+        {
+            "positive": 142,
+            "neutral": 25,
+            "negative": 19,
+            "sessions": 2042147,
+            "total_comments": 186,
+            "start_date": "2014-10-28",
+            "end_date": "2015-01-26",
+            "mid_date": "2014-12-12"
+        },
+        {
+            "positive": 199,
+            "neutral": 34,
+            "negative": 9,
+            "sessions": 3181253,
+            "total_comments": 242,
+            "start_date": "2015-01-26",
+            "end_date": "2015-04-26",
+            "mid_date": "2015-03-12"
+        },
+        {
+            "positive": 95,
+            "neutral": 15,
+            "negative": 12,
+            "sessions": 3249589,
+            "total_comments": 122,
+            "start_date": "2015-04-26",
+            "end_date": "2015-07-25",
+            "mid_date": "2015-06-10"
+        },
+        {
+            "positive": 108,
+            "neutral": 21,
+            "negative": 16,
+            "sessions": 3654009,
+            "total_comments": 145,
+            "start_date": "2015-07-25",
+            "end_date": "2015-10-23",
+            "mid_date": "2015-09-08"
+        },
+        {
+            "positive": 178,
+            "neutral": 34,
+            "negative": 23,
+            "sessions": 5645986,
+            "total_comments": 235,
+            "start_date": "2015-10-23",
+            "end_date": "2016-01-21",
+            "mid_date": "2015-12-07"
+        },
+        {
+            "positive": 88,
+            "neutral": 35,
+            "negative": 17,
+            "sessions": 6800932,
+            "total_comments": 140,
+            "start_date": "2016-01-21",
+            "end_date": "2016-04-20",
+            "mid_date": "2016-03-06"
+        },
+        {
+            "positive": 41,
+            "neutral": 9,
+            "negative": 9,
+            "sessions": 5441562,
+            "total_comments": 59,
+            "start_date": "2016-04-20",
+            "end_date": "2016-07-19",
+            "mid_date": "2016-06-04"
+        },
+        {
+            "positive": 43,
+            "neutral": 25,
+            "negative": 18,
+            "sessions": 5677755,
+            "total_comments": 86,
+            "start_date": "2016-07-19",
+            "end_date": "2016-10-17",
+            "mid_date": "2016-09-02"
+        },
+        {
+            "positive": 50,
+            "neutral": 23,
+            "negative": 9,
+            "sessions": 6111357,
+            "total_comments": 82,
+            "start_date": "2016-10-17",
+            "end_date": "2017-01-15",
+            "mid_date": "2016-12-01"
+        },
+        {
+            "positive": 27,
+            "neutral": 25,
+            "negative": 7,
+            "sessions": 6569802,
+            "total_comments": 59,
+            "start_date": "2017-01-15",
+            "end_date": "2017-04-15",
+            "mid_date": "2017-03-01"
+        },
+        {
+            "positive": 18,
+            "neutral": 12,
+            "negative": 4,
+            "sessions": 3983905,
+            "total_comments": 34,
+            "start_date": "2017-04-15",
+            "end_date": "2017-07-14",
+            "mid_date": "2017-05-30"
+        },
+        {
+            "neutral": 19,
+            "positive": 17,
+            "negative": 6,
+            "sessions": 4549536,
+            "total_comments": 42,
+            "start_date": "2017-07-14",
+            "end_date": "2017-10-12",
+            "mid_date": "2017-08-28"
+        },
+        {
+            "positive": 39,
+            "neutral": 29,
+            "negative": 26,
+            "sessions": 6222595,
+            "total_comments": 94,
+            "start_date": "2017-10-12",
+            "end_date": "2018-01-10",
+            "mid_date": "2017-11-26"
+        },
+        {
+            "neutral": 25,
+            "positive": 19,
+            "negative": 11,
+            "sessions": 5700102,
+            "total_comments": 55,
+            "start_date": "2018-01-10",
+            "end_date": "2018-04-10",
+            "mid_date": "2018-02-24"
+        }
+    ]
+}
