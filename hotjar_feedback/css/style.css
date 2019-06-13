@@ -1,0 +1,15 @@
+svg text {
+  font-family: Sans;
+  font-size: 10px;
+  alignment-baseline: hanging;
+}
+
+svg g.tick text {
+  alignment-baseline: baseline;
+}
+
+svg text.row-header {
+  font-family: Sans-serif;
+  font-size: 11px;
+  alignment-baseline: hanging;
+}
